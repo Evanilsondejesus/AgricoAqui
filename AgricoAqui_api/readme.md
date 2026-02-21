@@ -3,4 +3,10 @@ Biblioteca:
 
 - Sequilize
 - Mysql2
-- Cor
+- Cors
+- dotenv
+- multer
+- cookie-parser
+- bcrypt
+- express
+- jsonwebtoken
