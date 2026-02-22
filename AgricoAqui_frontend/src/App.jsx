@@ -7,6 +7,23 @@ import Login from "./pages/login";
 import Layout from "./layout/layout";
 import Home from "./pages/home";
 import { CarrinhoProvider } from "./context/carrinhoContext";
+import Venda from "./pages/vendas";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function App() {
   
 
@@ -22,6 +39,7 @@ function App() {
 <Route path="login" element={<Login />} />
   <Route  element={<Layout />}>
      <Route path="home" element={<Home />} />
+     <Route path="vendas" element={<Venda />} />
   </Route>
 
 
