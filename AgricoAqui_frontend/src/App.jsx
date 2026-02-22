@@ -11,7 +11,7 @@ import Venda from "./pages/vendas";
 import CadastraProduto from "./pages/cadastraProduto";
 import AtualizaProduto from "./pages/atualizaProduto";
 import HistoricoCompra from "./pages/historicoCompra";
-
+import CarrinhoCompras from "./pages/carrinhoCompras";
 
 
 
@@ -43,6 +43,8 @@ function App() {
      <Route path="cadastra-produto" element={<CadastraProduto />} />
      <Route path="atualiza-produto/:id" element={<AtualizaProduto />} />
      <Route path="minhas-compras" element={<HistoricoCompra />} />
+    <Route path="carrinho-de-compras" element={<CarrinhoCompras />} />
+  
   </Route>
 
 
