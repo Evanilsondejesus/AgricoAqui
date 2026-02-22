@@ -9,7 +9,7 @@ import Home from "./pages/home";
 import { CarrinhoProvider } from "./context/carrinhoContext";
 import Venda from "./pages/vendas";
 import CadastraProduto from "./pages/cadastraProduto";
-
+import AtualizaProduto from "./pages/atualizaProduto";
 
 
 
@@ -41,6 +41,7 @@ function App() {
      <Route path="home" element={<Home />} />
      <Route path="vendas" element={<Venda />} />
      <Route path="cadastra-produto" element={<CadastraProduto />} />
+      <Route path="atualiza-produto/:id" element={<AtualizaProduto />} />
   </Route>
 
 
