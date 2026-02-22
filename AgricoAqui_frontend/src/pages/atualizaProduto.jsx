@@ -107,6 +107,16 @@ export default function AtualizaProduto() {
   };
 
   return (
+
+    <>
+<meta name="title" content="AgricoAqui | Atualizar Produto" />
+<meta name="description" content="Atualize as informações do seu produto agrícola no AgricoAqui de forma rápida e segura." />
+<meta name="keywords" content="editar produto agrícola, atualizar produto rural, gerenciar vendas agrícolas, marketplace agrícola" />
+<meta name="author" content="AgricoAqui" />
+<meta name="robots" content="noindex, nofollow" />
+<title>AgricoAqui | Atualizar Produto</title>
+    
+    
     <div className="container mt-5">
       <div className="row justify-content-center">
         <div className="col-md-6">
@@ -229,5 +239,6 @@ export default function AtualizaProduto() {
         </div>
       </div>
     </div>
+    </>
   );
 }

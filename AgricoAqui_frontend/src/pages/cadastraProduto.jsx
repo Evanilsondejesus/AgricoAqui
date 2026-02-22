@@ -104,6 +104,14 @@ const handleSubmit = async (e) => {
 
   return (
 
+<>
+<meta name="title" content="AgricoAqui | Cadastrar Produto" />
+<meta name="description" content="Cadastre seus produtos agrícolas no AgricoAqui e conecte-se a compradores de forma rápida, simples e segura." />
+<meta name="keywords" content="cadastrar produto agrícola, vender produtos rurais, agronegócio, plataforma agrícola, produtores rurais, marketplace agrícola" />
+<meta name="author" content="AgricoAqui" />
+<meta name="robots" content="noindex, nofollow" />
+<title>AgricoAqui | Cadastrar Produto</title>
+
 
 
     <div className="container mt-5">
@@ -224,6 +232,8 @@ const handleSubmit = async (e) => {
     </div>
 
 
+
+</>
 
 
 
