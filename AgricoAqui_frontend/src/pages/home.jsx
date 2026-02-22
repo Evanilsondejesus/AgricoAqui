@@ -60,6 +60,19 @@ export default function Home() {
   }
 
   return (
+    <>
+
+<title>AgricoAqui | Conectando produtores e compradores</title>
+
+  <meta name="title" content="AgricoAqui | Conectando produtores e compradores" />
+  <meta name="description" content="O AgricoAqui é uma plataforma digital que conecta produtores rurais e compradores de forma simples, moderna e eficiente, fortalecendo o mercado agrícola." />
+  <meta name="keywords" content="agricultura, produtores rurais, mercado agrícola, agronegócio, vendas agrícolas, plataforma agrícola, conexão rural" />
+  <meta name="author" content="AgricoAqui" />
+
+  
+  <meta name="robots" content="index, follow" />
+
+
     <div
       className="container-fluid py-5"
       style={{ backgroundColor: "#bfcab0", minHeight: "100vh" }}
@@ -103,5 +116,10 @@ export default function Home() {
         </div>
       </div>
     </div>
+
+
+
+
+</>
   );
 }

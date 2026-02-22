@@ -52,7 +52,21 @@ export default function Login() {
 
   return (
     <>
-      <div
+
+    <header>
+
+<meta name="title" content="Entrar | AgricoAqui" />
+  <meta name="description" content="Acesse sua conta no AgricoAqui e conecte-se ao mercado agrícola digital." />
+  <meta name="keywords" content="login AgricoAqui, acesso produtor, mercado agrícola, agronegócio" />
+  <meta name="author" content="AgricoAqui" />
+  <meta name="robots" content="noindex, nofollow" />
+
+      
+
+
+    </header>
+    <title>AgricoAqui | Entrar</title>
+  <div
         className="d-flex align-items-center justify-content-center vh-100"
         style={{ backgroundColor: "#cfd8c3" }}
       >

@@ -4,7 +4,7 @@ import agricultorImg from "../assets/agricultor.png";
 import Alerta from "../components/alert";
 import useAlerta from "../hooks/useAlert";
 import axios from "axios";
-
+import { Helmet } from "react-helmet";
 
 export default function Cadastro() {
 
@@ -100,9 +100,15 @@ export default function Cadastro() {
 
   return (
     <>
+ 
 
-    
+  <meta name="title" content="Criar Conta | AgricoAqui" />
+  <meta name="description" content="Crie sua conta no AgricoAqui e conecte-se ao mercado agrícola digital de forma simples e moderna." />
+  <meta name="keywords" content="cadastro AgricoAqui, criar conta agrícola, produtores rurais, mercado agrícola, agronegócio" />
+  <meta name="author" content="AgricoAqui" />
+  <meta name="robots" content="noindex, nofollow" />
 
+<title>Criar | AgricoAqui</title>
 
       <div
         className="d-flex align-items-center justify-content-center vh-100"

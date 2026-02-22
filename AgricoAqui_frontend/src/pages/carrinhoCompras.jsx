@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCarrinho } from "../context/CarrinhoContext";
+import { useCarrinho } from "../context/carrinhoContext";
 import axios from "axios";
 
 export default function CarrinhoCompras() {
@@ -63,6 +63,18 @@ export default function CarrinhoCompras() {
   );
 
   return (
+
+    <>
+    <title>Carrinho de Compras | AgricoAqui</title>
+
+  <meta name="title" content="Carrinho de Compras | AgricoAqui" />
+  <meta name="description" content="Revise os produtos selecionados no seu carrinho e finalize sua compra no AgricoAqui de forma rápida e segura." />
+  <meta name="keywords" content="carrinho agrícola, finalizar compra, marketplace agrícola, agronegócio" />
+  <meta name="author" content="AgricoAqui" />
+  <meta name="robots" content="noindex, nofollow" />
+    
+    
+    
     <div
       className="container-fluid py-5"
       style={{ backgroundColor: "#bfcab0", minHeight: "100vh" }}
@@ -129,5 +141,7 @@ export default function CarrinhoCompras() {
         )}
       </div>
     </div>
+    
+    </>
   );
 }

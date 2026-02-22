@@ -76,6 +76,19 @@ const buscarProdutos = useCallback(async () => {
 
  
   return (
+
+    <>
+
+
+  <meta name="title" content="Histórico de Compras | AgricoAqui" />
+  <meta name="description" content="Acompanhe suas compras realizadas no AgricoAqui e visualize detalhes dos seus pedidos de forma organizada e segura." />
+  <meta name="keywords" content="histórico de compras, pedidos agrícolas, compras realizadas, plataforma agrícola" />
+  <meta name="author" content="AgricoAqui" />
+  <meta name="robots" content="noindex, nofollow" />
+
+<title>Histórico de Compras | AgricoAqui</title>
+
+
     <div
       className="container-fluid py-5"
       style={{ backgroundColor: "#bfcab0", minHeight: "100vh" }}
@@ -139,5 +152,6 @@ const buscarProdutos = useCallback(async () => {
 
       </div>
     </div>
+    </>
   );
 }

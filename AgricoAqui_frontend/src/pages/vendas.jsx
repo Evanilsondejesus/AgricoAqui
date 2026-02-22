@@ -98,6 +98,14 @@ async function removerProduto(id) {
     <>
     
       {/* ÁREA PRINCIPAL */}
+    
+  <meta name="title" content="Vendas Agrícolas | AgricoAqui" />
+  <meta name="description" content="Explore produtos agrícolas disponíveis para venda no AgricoAqui. Conecte-se diretamente com produtores rurais e faça negócios de forma segura e eficiente." />
+  <meta name="keywords" content="vendas agrícolas, comprar produtos rurais, mercado agrícola, agronegócio, produtores rurais" />
+  <meta name="author" content="AgricoAqui" />
+  <meta name="robots" content="index, follow" />
+  <title>Vendas Agrícolas | AgricoAqui</title>
+    
       <div
         className="container-fluid py-5"
         style={{ backgroundColor: "#bfcab0", minHeight: "100vh" }}

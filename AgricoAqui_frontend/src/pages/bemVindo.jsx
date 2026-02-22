@@ -9,13 +9,26 @@ import "../styles/Welcome.css";
 function Welcome() {
   return (
     <>
+    
+    
+
+
       <header className="header">
         <div className="logo">🌱 AgricoAqui</div>
+
         <nav>
           <Link to="/login" className="btn-outline text-decoration-none">Entrar</Link>
           <Link to="/cadastro" className="btn-primary text-decoration-none">Criar conta</Link>
         </nav>
+        <meta name="title" content="AgricoAqui | Conectando produtores e compradores" />
+        <meta name="description" content="O AgricoAqui é uma plataforma digital que conecta produtores rurais e compradores de forma simples, moderna e eficiente." />
+        <meta name="keywords" content="agricultura, produtores rurais, mercado agrícola, agronegócio, vendas agrícolas, plataforma agrícola" />
+        <meta name="author" content="AgricoAqui" />
+        <meta name="robots" content="index, follow" />
+    
       </header>
+    <title>AgricoAqui | bem vindo</title>
+
 
       <section className="hero">
         <div className="hero-content">

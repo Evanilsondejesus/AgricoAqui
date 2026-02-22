@@ -36,7 +36,9 @@ function App() {
  <Route path="*" element={<NotFound />} /> {/* Qual outra rota que usuario possa inventar ou digitar por engando uma rota que não existir */}
  <Route path="/bem-vindo" element={<BemVindo />} />
  <Route path="cadastro" element={<Cadastro />} />
-<Route path="login" element={<Login />} />
+ <Route path="login" element={<Login />} />
+ <Route path="/" element={<BemVindo />} />
+
   <Route  element={<Layout />}>
      <Route path="home" element={<Home />} />
      <Route path="vendas" element={<Venda />} />
