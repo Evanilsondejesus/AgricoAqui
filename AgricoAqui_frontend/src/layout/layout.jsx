@@ -1,7 +1,7 @@
 // layout/Layout.jsx
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/navBar";
-
+import Footer from "../components/footer";
 export default function Layout() {
   return (
     <>
@@ -9,7 +9,7 @@ export default function Layout() {
       <main >
         <Outlet />
       </main>
-    
+     <Footer/>
 
 
     </>
