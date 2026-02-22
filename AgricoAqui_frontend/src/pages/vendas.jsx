@@ -116,7 +116,7 @@ async function removerProduto(id) {
 
 
 <button
-      onClick={() => navigate("/criar-produto")}
+      onClick={() => navigate("/cadastra-produto")}
       className="btn d-flex align-items-center justify-content-center"
       style={{
         width: "70px",

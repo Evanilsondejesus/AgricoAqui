@@ -8,7 +8,7 @@ import Layout from "./layout/layout";
 import Home from "./pages/home";
 import { CarrinhoProvider } from "./context/carrinhoContext";
 import Venda from "./pages/vendas";
-
+import CadastraProduto from "./pages/cadastraProduto";
 
 
 
@@ -40,15 +40,16 @@ function App() {
   <Route  element={<Layout />}>
      <Route path="home" element={<Home />} />
      <Route path="vendas" element={<Venda />} />
+     <Route path="cadastra-produto" element={<CadastraProduto />} />
   </Route>
 
 
 
 
-            </Routes>
+        </Routes>
             
       </BrowserRouter>
-</CarrinhoProvider>
+    </CarrinhoProvider>
 
     </>
   )
