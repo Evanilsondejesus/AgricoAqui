@@ -4,11 +4,15 @@ import NotFound from "./pages/notFound";
 import BemVindo from "./pages/bemVindo";
 import Cadastro from "./pages/cadastro";
 import Login from "./pages/login";
+import Layout from "./layout/layout";
+import Home from "./pages/home";
+import { CarrinhoProvider } from "./context/carrinhoContext";
 function App() {
   
 
   return (
     <>
+     <CarrinhoProvider>
        <BrowserRouter>
         <Routes>
   
@@ -16,10 +20,17 @@ function App() {
  <Route path="/bem-vindo" element={<BemVindo />} />
  <Route path="cadastro" element={<Cadastro />} />
 <Route path="login" element={<Login />} />
+  <Route  element={<Layout />}>
+     <Route path="home" element={<Home />} />
+  </Route>
+
+
+
+
             </Routes>
             
       </BrowserRouter>
-
+</CarrinhoProvider>
 
     </>
   )
