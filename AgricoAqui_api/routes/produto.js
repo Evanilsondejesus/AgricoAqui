@@ -11,82 +11,16 @@ const upload = require("../config/uploadConfig");
 
 
 
-// router.get("/listar", authMiddleware, async (req, res) => {
-//   try {
-//     const produtos = await Produto.findAll({
-//       where: { usuario_id: req.userId }
-//     });
-
-//     res.json(produtos);
-//   } catch (error) {
-//     res.status(500).json({ erro: "Erro ao listar produtos" });
-//   }
-// });
 
 
+/*
+imagem: `${baseUrl}/${(p.imagem ?? "uploads/default.png").replace(/\\/g, "/")}`,
 
-
-
-
-
-
-
-
-// router.get("/listar", authMiddleware, async (req, res) => {
-
-// const token = req.cookies.token;
-
-
-//   if (!token) {
-//     return res.status(401).json({ erro: "Token não fornecido" });
-//   }
-
-
-//   try {
-//     const produtos = await Produto.findAll();
-
-//     const baseUrl = `${req.protocol}://${req.get("host")}`;
-
-//     const produtosFormatados = produtos.map(produto => {
-//       const p = produto.toJSON();
-
-//       return {
-//         ...p,
-//         imagem: p.imagem
-//           ? `${baseUrl}/${p.imagem.replace(/\\/g, "/")}`
-//           : null
-//       };
-//     });
-
-//     res.json(produtosFormatados);
-
-//   } catch (error) {
-//     res.status(500).json({ erro: "Erro ao listar produtos" });
-//   }
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- * @swagger
- * /produtos:
- *   get:
- *     summary: Lista todos os produtos
- *     responses:
- *       200:
- *         description: Lista de produtos retornada com sucesso
- */
 
 router.get("/listar", authMiddleware, async (req, res) => {
+
+  const imagem: `${baseUrl}/${(p.imagem ?? "uploads/default.png").replace(/\\/g, "/")}`,
+
   try {
     const produtos = await Produto.findAll();
 
@@ -110,6 +44,7 @@ router.get("/listar", authMiddleware, async (req, res) => {
 });
 
 
+*/
 
 
 
@@ -117,7 +52,29 @@ router.get("/listar", authMiddleware, async (req, res) => {
 
 
 
+router.get("/listar", authMiddleware, async (req, res) => {
+  try {
+    const produtos = await Produto.findAll();
 
+    const baseUrl = `${req.protocol}://${req.get("host")}`;
+
+    const produtosFormatados = produtos.map(produto => {
+      const p = produto.toJSON();
+
+      return {
+        ...p,
+        imagem: `${baseUrl}/${(p.imagem ?? "uploads/defaut.png")
+          .replace(/\\/g, "/")}`,
+        meuProduto: p.usuario_id === req.userId
+      };
+    });
+
+    res.json(produtosFormatados);
+
+  } catch (error) {
+    res.status(500).json({ erro: "Erro ao listar produtos" });
+  }
+});
 
 
 
