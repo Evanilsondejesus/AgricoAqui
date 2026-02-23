@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCarrinho } from "../context/carrinhoContext";
 import axios from "axios";
-
+import Card from "../components/card";
 
 
 export default function produtoUsuario() {
@@ -151,6 +151,17 @@ async function removerProduto(id) {
 
             {produtosFiltrados.length > 0 ? (
               produtosFiltrados.map((produto) => (
+
+
+
+
+
+          
+
+
+
+
+
                 <div key={produto.id} className="col-6 col-md-3">
                   <div className="card shadow-sm border-0 rounded-3 h-100">
 

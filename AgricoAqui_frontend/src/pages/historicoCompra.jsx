@@ -34,7 +34,7 @@ const buscarProdutos = useCallback(async () => {
     setError(null);
 
     const response = await axios.get(
-      `${API_URL}/compras/produto_comprado`,
+      `${API_URL}/compras/produto-comprado`,
       {
         withCredentials: true
       }
@@ -124,18 +124,7 @@ const buscarProdutos = useCallback(async () => {
 
 
 
-              
-
-
-
-
-
-
-
-                
-
-                      
-              
+          
               ))
             ) : (
               <p className="text-center text-dark">
