@@ -7,51 +7,11 @@ const multer = require("multer");
 const path = require("path");
 const upload = require("../config/uploadConfig");
 
+
+
+
 // 🔹 LISTAR TODOS OS PRODUTOS DO USUÁRIO LOGADO
 
-
-
-
-
-/*
-imagem: `${baseUrl}/${(p.imagem ?? "uploads/default.png").replace(/\\/g, "/")}`,
-
-
-router.get("/listar", authMiddleware, async (req, res) => {
-
-  const imagem: `${baseUrl}/${(p.imagem ?? "uploads/default.png").replace(/\\/g, "/")}`,
-
-  try {
-    const produtos = await Produto.findAll();
-
-    const baseUrl = `${req.protocol}://${req.get("host")}`;
-
-    const produtosFormatados = produtos.map(produto => {
-      const p = produto.toJSON();
-
-      return {
-        ...p,
-        imagem: p.imagem ? `${baseUrl}/${p.imagem.replace(/\\/g, "/")}` : null,
-        meuProduto: p.usuario_id === req.userId // ✅ propriedade extra
-      };
-    });
-
-    res.json(produtosFormatados);
-
-  } catch (error) {
-    res.status(500).json({ erro: "Erro ao listar produtos" });
-  }
-});
-
-
-*/
-
-
-
-
-
-
-
 router.get("/listar", authMiddleware, async (req, res) => {
   try {
     const produtos = await Produto.findAll();
@@ -63,10 +23,11 @@ router.get("/listar", authMiddleware, async (req, res) => {
 
       return {
         ...p,
-        imagem: `${baseUrl}/${(p.imagem ?? "uploads/defaut.png")
+        imagem: `${baseUrl}/${(p.imagem ?? "uploads/default.png")
           .replace(/\\/g, "/")}`,
         meuProduto: p.usuario_id === req.userId
       };
+
     });
 
     res.json(produtosFormatados);
@@ -77,33 +38,7 @@ router.get("/listar", authMiddleware, async (req, res) => {
 });
 
 
-
-
-
-
-
-
-
-
-// // 🔹 LISTAR TODOS OS PRODUTOS DO USUÁRIO LOGADO
-// router.get("/listar", authMiddleware, async (req, res) => {
-//   try {
-//     const produtos = await Produto.findAll({
-//       where: { usuario_id: req.userId }
-//     });
-
-//     res.json(produtos);
-//   } catch (error) {
-//     res.status(500).json({ erro: "Erro ao listar produtos" });
-//   }
-// });
-
-
-
-
-
-
-
+// produtos cadastrado pelo usuario 
 
 router.get("/produto_user", authMiddleware, async (req, res) => {
 
@@ -148,44 +83,41 @@ const token = req.cookies.token;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // 🔹 BUSCAR PRODUTO POR ID
 router.get("/:id", authMiddleware, async (req, res) => {
   try {
-    const { id } = req.params;
+    const id = parseInt(req.params.id, 10);
+
+    if (isNaN(id)) {
+      return res.status(400).json({ erro: "ID inválido" });
+    }
 
     const produto = await Produto.findOne({
-      where: {
-        id,
-        usuario_id: req.userId
-      }
+      where: { id }
     });
 
     if (!produto) {
       return res.status(404).json({ erro: "Produto não encontrado" });
     }
 
-    res.json(produto);
+    const baseUrl = `${req.protocol}://${req.get("host")}`;
+    const p = produto.toJSON();
+
+    const produtoFormatado = {
+      ...p,
+      imagem: `${baseUrl}/${(p.imagem ?? "uploads/default.png")
+        .replace(/\\/g, "/")}`,
+      meuProduto: p.usuario_id === req.userId
+    };
+
+    return res.status(200).json(produtoFormatado);
+
   } catch (error) {
-    res.status(500).json({ erro: "Erro ao buscar produto" });
+    console.error("Erro ao buscar produto:", error);
+    return res.status(500).json({ erro: "Erro ao buscar produto" });
   }
 });
+
 
 
 
@@ -226,6 +158,7 @@ router.post("/cria", authMiddleware, upload.single("imagem"), async (req, res) =
 
 
 
+
 router.put("/:id", authMiddleware, upload.single("imagem"), async (req, res) => {
 
 
@@ -258,73 +191,6 @@ router.put("/:id", authMiddleware, upload.single("imagem"), async (req, res) => 
     res.status(500).json({ erro: "Erro ao atualizar produto" });
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 🔹 ATUALIZAR PRODUTO
-// router.put("/:id", authMiddleware, async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const { nome, descricao, preco, estoque, unidade } = req.body;
-
-//     const produto = await Produto.findOne({
-//       where: {
-//         id,
-//         usuario_id: req.userId
-//       }
-//     });
-//  const imagem = req.file ? req.file.path : null;
-
-
-//     if (!produto) {
-//       return res.status(404).json({ erro: "Produto não encontrado" });
-//     }
-
-//     await produto.update({
-//       nome,
-//       descricao,
-//       preco,
-//       estoque,
-//       imagem,
-//       unidade
-//     });
-
-//     res.json({
-//       ...produto.toJSON(),
-//       imagem: produto.imagem ? `${baseUrl}/${produto.imagem.replace(/\\/g, "/")}` : null
-//     });
-
-//   } catch (error) {
-//     res.status(500).json({ erro: "Erro ao atualizar produto" });
-//   }
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
