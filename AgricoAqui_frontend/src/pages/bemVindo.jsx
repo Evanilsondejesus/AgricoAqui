@@ -123,6 +123,10 @@ function Welcome() {
         <a href="#">Termos</a>
         <a href="#">Privacidade</a>
       </footer>
+
+
+
+      
     
     </>
   );

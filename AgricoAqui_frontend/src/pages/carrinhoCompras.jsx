@@ -85,7 +85,7 @@ export default function CarrinhoCompras() {
         {carrinho.length === 0 ? (
           <div className="text-center">
             <p className="text-muted">Seu carrinho está vazio</p>
-            <button className="btn btn-danger" onClick={() => navigate("/home")}>
+            <button className="btn-primary" onClick={() => navigate("/home")}>
               Voltar para loja
             </button>
           </div>
@@ -132,7 +132,7 @@ export default function CarrinhoCompras() {
 
               <div className="text-end mt-4">
                 <h5>Total: R$ {total.toFixed(2)}</h5>
-                <button className="btn btn-success mt-3" onClick={finalizarCompra}>
+                <button className=" btn-primary mt-3" onClick={finalizarCompra}>
                   Finalizar Compra
                 </button>
               </div>

@@ -4,6 +4,7 @@ import agricultorImg from "../assets/agricultor.png";
 import Alerta from "../components/alert";
 import useAlerta from "../hooks/useAlert";
 import axios from "axios";
+import Footer from "../components/footer";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -60,11 +61,8 @@ export default function Login() {
   <meta name="keywords" content="login AgricoAqui, acesso produtor, mercado agrícola, agronegócio" />
   <meta name="author" content="AgricoAqui" />
   <meta name="robots" content="noindex, nofollow" />
+</header>
 
-      
-
-
-    </header>
     <title>AgricoAqui | Entrar</title>
   <div
         className="d-flex align-items-center justify-content-center vh-100"
@@ -139,7 +137,7 @@ export default function Login() {
                 <div className="d-grid mb-3">
                   <button
                     type="submit"
-                    className="btn btn-success btn-lg rounded-3"
+                    className=" rounded-3 btn-primary"
                     disabled={loading}
                   >
                     {loading ? "Entrando..." : "Entrar"}
@@ -159,6 +157,7 @@ export default function Login() {
                     Ainda não tem conta?
                   </span>{" "}
                   <span
+
                     className="text-success fw-bold"
                     style={{ cursor: "pointer" }}
                     onClick={() => navigate("/cadastro")}
@@ -173,7 +172,7 @@ export default function Login() {
           </div>
         </div>
       </div>
-
+<Footer/>
     </>
   );
 }

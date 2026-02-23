@@ -71,6 +71,7 @@ export default function Home() {
 
   
   <meta name="robots" content="index, follow" />
+<link rel="icon" type="image/png" href="/plantar.png" />
 
 
     <div

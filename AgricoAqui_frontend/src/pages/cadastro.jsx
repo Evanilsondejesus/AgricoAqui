@@ -4,7 +4,7 @@ import agricultorImg from "../assets/agricultor.png";
 import Alerta from "../components/alert";
 import useAlerta from "../hooks/useAlert";
 import axios from "axios";
-import { Helmet } from "react-helmet";
+import Footer from "../components/footer";
 
 export default function Cadastro() {
 
@@ -209,7 +209,7 @@ export default function Cadastro() {
                 <div className="d-grid mb-3">
                   <button
                     type="submit"
-                    className="btn btn-success btn-lg rounded-3"
+                    className="btn-primary btn-lg rounded-3"
                     disabled={loading}
                   >
                     {loading ? "Criando conta..." : "Criar conta"}
@@ -247,7 +247,7 @@ export default function Cadastro() {
           </div>
         </div>
       </div>
-
+<Footer/>
     
     </>
   );

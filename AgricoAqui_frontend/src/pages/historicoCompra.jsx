@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback, useMemo } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useCarrinho } from "../context/carrinhoContext";
 import axios from "axios";
-
+import Card from "../components/card";
 const API_URL = "http://localhost:3000";
 
 export default function HistoricoCompras() {
@@ -104,43 +104,38 @@ const buscarProdutos = useCallback(async () => {
         )}
 
         {error && (
-          <p className="text-center text-danger">{error}</p>
+          <p className="text-center">{error}</p>
         )}
 
         {!loading && !error && (
           <div className="row g-4 justify-content-center">
             {produtosFiltrados.length > 0 ? (
               produtosFiltrados.map((produto) => (
-                <div key={produto.id} className="col-6 col-md-3">
-                  <div className="card shadow-sm border-0 rounded-3 h-100">
 
-                    <img
-                      src={produto.imagem}
-                      alt={produto.nome}
-                      className="card-img-top"
-                      style={{ height: "150px", objectFit: "cover" }}
-                    />
 
-                    <div className="card-body text-center">
-                      <h6 className="fw-bold">
-                        {produto.nome}
-                      </h6>
+            <Card
+              key={produto.id}
+              imagem={produto.imagem}
+              nome={produto.nome}
+              preco={produto.preco}
+              mostrarBotao={!produto.meuProduto}
+              onClickBotao={() => adicionarAoCarrinho(produto)}
+            />
 
-                      <p className="text-muted small">
-                        R$ {Number(produto.preco).toFixed(2)}
-                      </p>
 
-                      <Link
-                        to={`/atualizaProduto/${produto.id}`}
-                        className="btn btn-primary btn-sm"
-                      >
-                        Comprar novamente
-                      </Link>
+
+              
+
+
+
+
+
+
+
+                
 
                       
-                    </div>
-                  </div>
-                </div>
+              
               ))
             ) : (
               <p className="text-center text-dark">

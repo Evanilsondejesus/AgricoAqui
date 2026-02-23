@@ -19,7 +19,7 @@ export default function NotFound() {
         A rota que você tentou acessar não existe.
       </p>
 
-      <Link to="/" className="btn btn-primary btn-lg">
+      <Link to="/" className="btn-primary btn-lg">
         Voltar para página inicial
       </Link>
 

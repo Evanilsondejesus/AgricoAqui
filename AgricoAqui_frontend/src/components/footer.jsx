@@ -38,7 +38,8 @@ setCarrinho([])
 
 
   return (
-    <footer className="bg-dark text-white pt-5 pb-3">
+  
+    <footer className=" pt-5 pb-3 footer" style={{ backgroundColor: "var(--color-footer)" }}>
   <div className="container">
     <div className="row">
 
@@ -59,15 +60,15 @@ setCarrinho([])
 
 <ul className="list-unstyled">
   <li>
-    <a href="/home" className="text-white text-decoration-none">Home</a>
+    <a href="/home" className=" text-decoration-none">Home</a>
   </li>
   <li>
-    <a href="/produtos" className="text-white text-decoration-none">Produtos</a>
+    <a href="/produtos" className=" text-decoration-none">Produtos</a>
 
   </li>
   <li>
     <button 
-      className="btn btn-link p-0 text-white text-decoration-none" 
+      className="btn btn-link p-0 text-decoration-none" 
       onClick={Logout}
     >
       Logout
@@ -140,6 +141,34 @@ setCarrinho([])
       &copy; {new Date().getFullYear()} AgricoAqui. Todos os direitos reservados.
     </div>
   </div>
+
+
+
+
+{/* 
+
+   <footer className="footer">
+        <a href="#">Como comprar</a>
+        <a href="#">Como vender</a>
+        <a href="#">Taxas e tarifas</a>
+        <a href="#">Fale conosco</a>
+        <a href="#">Termos</a>
+        <a href="#">Privacidade</a>
+
+
+
+
+
+      </footer>
+
+ */}
+
+
+
+
+
+
+
 </footer>
 
   );

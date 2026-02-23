@@ -67,7 +67,7 @@ export default function Card({ imagem, nome, preco, mostrarBotao, onClickBotao }
 
           {mostrarBotao && (
             <button
-              className="btn btn-success mt-auto"
+              className="btn-primary mt-auto"
               onClick={onClickBotao}
             >
               Adicionar ao carrinho
