@@ -9,6 +9,10 @@ export default function Home() {
   const [loading, setLoading] = useState(true); // estado de loading
   const [erro, setErro] = useState(null);       // estado de erro
   const { setCarrinho, busca } = useCarrinho();
+
+
+
+
   const navigate = useNavigate();
 
   // Evita erro caso produto.nome seja undefined
@@ -43,6 +47,9 @@ export default function Home() {
     }
   }
 
+
+
+
   function adicionarAoCarrinho(produto) {
     setCarrinho((prevCarrinho) => {
       const produtoExistente = prevCarrinho.find(p => p.id === produto.id);
@@ -58,6 +65,15 @@ export default function Home() {
       return [...prevCarrinho, { ...produto, quantidade: 1 }];
     });
   }
+
+
+
+
+
+
+
+
+
 
   return (
     <>
@@ -105,12 +121,13 @@ export default function Home() {
 
           {!loading && !erro && produtosFiltrados.map((produto) => (
             <Card
-              key={produto.id}
+              id={produto.id}
               imagem={produto.imagem}
               nome={produto.nome}
               preco={produto.preco}
               mostrarBotao={!produto.meuProduto}
               onClickBotao={() => adicionarAoCarrinho(produto)}
+              btnInfo="Virsualizar"
             />
           ))}
 

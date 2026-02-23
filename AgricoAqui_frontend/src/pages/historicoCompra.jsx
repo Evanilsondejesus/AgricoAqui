@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useCarrinho } from "../context/carrinhoContext";
 import axios from "axios";
 import Card from "../components/card";
+
 const API_URL = "http://localhost:3000";
 
 export default function HistoricoCompras() {
@@ -120,7 +121,17 @@ const buscarProdutos = useCallback(async () => {
               preco={produto.preco}
               mostrarBotao={!produto.meuProduto}
               onClickBotao={() => adicionarAoCarrinho(produto)}
+              btnInfo="Comprar novamente"
+              id={produto.produto_id}
             />
+
+
+
+
+
+ 
+
+
 
 
 
