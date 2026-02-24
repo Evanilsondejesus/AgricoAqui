@@ -33,8 +33,10 @@ export default function CarrinhoCompras() {
     setCarrinho(prev => prev.filter(item => item.id !== id));
   }
 
+  /*
   async function finalizarCompra() {
     console.log("Finalizando compra com itens:", carrinho);
+
 
     try {
       const response = await axios.post(
@@ -57,10 +59,66 @@ export default function CarrinhoCompras() {
     }
   }
 
+  */
   const total = carrinho.reduce(
     (acc, item) => acc + item.preco * item.quantidade,
     0
   );
+
+
+
+
+
+async function finalizarCompra() {
+
+  // 🔒 Verificação antes de enviar
+  const itemInvalido = carrinho.find(
+    item => item.quantidade > item.estoque
+  );
+
+  if (itemInvalido) {
+    alert(`Quantidade indisponível para ${itemInvalido.nome}`);
+    return;
+  }
+
+  try {
+    const response = await axios.post(
+      "http://localhost:3000/compras/finalizar",
+      { itens: carrinho },
+      { withCredentials: true }
+    );
+
+    alert("Compra finalizada com sucesso!");
+    localStorage.removeItem("carrinho");
+    setCarrinho([]);
+    navigate("/home");
+
+  } catch (error) {
+    if (error.response?.status === 401) {
+      navigate("/login");
+    } else {
+      alert(error.response?.data?.erro || "Erro no servidor");
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
 
@@ -97,8 +155,8 @@ export default function CarrinhoCompras() {
                   <div className="col-md-4">
                     <h6 className="fw-bold">{item.nome}</h6>
                     <small className="text-muted">R$ {item.preco}</small>
-                  </div>
-
+                   </div>
+ 
                   <div className="col-md-3 d-flex align-items-center">
                     <button
                       className="btn btn-outline-danger btn-sm"
@@ -107,12 +165,29 @@ export default function CarrinhoCompras() {
                       -
                     </button>
                     <span className="mx-3">{item.quantidade}</span>
-                    <button
+                    {/* <button
                       className="btn btn-outline-danger btn-sm"
                       onClick={() => aumentarQuantidade(item.id)}
                     >
                       +
                     </button>
+ */}
+
+
+<button
+  className="btn btn-outline-success btn-sm"
+  disabled={item.quantidade >= item.estoque}
+  onClick={() => aumentarQuantidade(item.id)}
+>
+  +
+</button>
+
+
+
+
+
+
+
                   </div>
 
                   <div className="col-md-3">
