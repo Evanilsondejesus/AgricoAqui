@@ -6,7 +6,7 @@ import axios from "axios";
 export default function CarrinhoCompras() {
   const navigate = useNavigate();
   const { carrinho, setCarrinho } = useCarrinho();
-
+// função para aumenta a quantidade de produto no estoque
   function aumentarQuantidade(id) {
     setCarrinho(prev =>
       prev.map(item =>
@@ -16,7 +16,7 @@ export default function CarrinhoCompras() {
       )
     );
   }
-
+// função para diminuir a quantidade de produto do estoque
   function diminuirQuantidade(id) {
     setCarrinho(prev =>
       prev
@@ -33,33 +33,7 @@ export default function CarrinhoCompras() {
     setCarrinho(prev => prev.filter(item => item.id !== id));
   }
 
-  /*
-  async function finalizarCompra() {
-    console.log("Finalizando compra com itens:", carrinho);
-
-
-    try {
-      const response = await axios.post(
-        "http://localhost:3000/compras/finalizar",
-        { itens: carrinho },
-        { withCredentials: true } // envia cookies
-      );
-
-      alert("Compra finalizada com sucesso!");
-      localStorage.removeItem("carrinho");
-      setCarrinho([]);
-      navigate("/home");
-
-    } catch (error) {
-      if (error.response && error.response.status === 401) {
-        navigate("/login");
-      } else {
-        alert(error.response?.data?.erro || "Erro no servidor");
-      }
-    }
-  }
-
-  */
+  
   const total = carrinho.reduce(
     (acc, item) => acc + item.preco * item.quantidade,
     0
